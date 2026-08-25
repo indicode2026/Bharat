@@ -1,34 +1,17 @@
-function showLogin() {
+function hideAllPages() {
 
-    document
-        .getElementById("registerScreen")
+    document.getElementById("registerPage")
         .classList.add("hidden");
 
-    document
-        .getElementById("successScreen")
+    document.getElementById("loginPage")
         .classList.add("hidden");
 
-    document
-        .getElementById("loginScreen")
-        .classList.remove("hidden");
+    document.getElementById("successPage")
+        .classList.add("hidden");
 }
 
 
-function showRegister() {
-
-    document
-        .getElementById("loginScreen")
-        .classList.add("hidden");
-
-    document
-        .getElementById("successScreen")
-        .classList.add("hidden");
-
-    document
-        .getElementById("registerScreen")
-        .classList.remove("hidden");
-}
-
+/* ================= REGISTER ================= */
 
 function registerUser() {
 
@@ -55,23 +38,51 @@ function registerUser() {
     }
 
 
-    document
-        .getElementById("registerScreen")
-        .classList.add("hidden");
+    /*
+       Registration successful.
+       Move to a completely separate page.
+    */
 
-    document
-        .getElementById("successScreen")
+    hideAllPages();
+
+    document.getElementById("successPage")
         .classList.remove("hidden");
 }
 
 
+/* ================= LOGIN PAGE ================= */
+
+function showLogin() {
+
+    hideAllPages();
+
+    document.getElementById("loginPage")
+        .classList.remove("hidden");
+}
+
+
+/* ================= REGISTER PAGE ================= */
+
+function showRegister() {
+
+    hideAllPages();
+
+    document.getElementById("registerPage")
+        .classList.remove("hidden");
+}
+
+
+/* ================= LOGIN ================= */
+
 function loginUser() {
 
     const phone =
-        document.getElementById("loginPhone").value.trim();
+        document.getElementById("loginPhone")
+            .value.trim();
 
     const password =
-        document.getElementById("loginPassword").value.trim();
+        document.getElementById("loginPassword")
+            .value.trim();
 
 
     if (phone === "" || password === "") {
@@ -91,5 +102,4 @@ function loginUser() {
 
 
     alert("Login successful!");
-
 }
