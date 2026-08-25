@@ -1,166 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RailTrack ETA</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="app">
-
     <!-- ================= REGISTER PAGE ================= -->
 
-    <section id="registerPage" class="screen register-page">
+    <div id="registerPage" class="page register-page">
 
-        <div class="background-train">
+        <!-- Background Train -->
+        <div class="train-sketch">
             🚆
         </div>
 
-        <div class="content">
+        <div class="register-container">
 
             <div class="logo">
-                🚆 <span>RailTrack</span> <b>ETA</b>
+                🚆 RailTrack <span>ETA</span>
             </div>
 
-            <h1>Start Your Journey</h1>
+            <h1>
+                Start Your Journey
+            </h1>
 
-            <p class="tagline">
-                Your journey starts here
+            <p class="subtitle">
+                Create your account to continue
             </p>
 
-            <div class="form">
 
-                <div class="input">
-                    <span>📱</span>
-                    <input
-                        id="phone"
-                        type="tel"
-                        maxlength="10"
-                        placeholder="Phone Number">
-                </div>
+            <!-- Phone -->
 
-                <div class="input">
-                    <span>🔒</span>
-                    <input
-                        id="password"
-                        type="password"
-                        placeholder="Password">
-                </div>
+            <div class="input-box">
 
-                <button
-                    class="main-btn"
-                    onclick="registerUser()">
-                    REGISTER
-                </button>
+                <span>📱</span>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your number"
+                    maxlength="10"
+                >
 
             </div>
 
-            <p class="bottom-text">
-                Already have an account?
-                <button onclick="showLogin()">LOGIN</button>
-            </p>
 
-        </div>
+            <!-- Password -->
 
-    </section>
+            <div class="input-box">
 
+                <span>🔒</span>
 
-    <!-- ================= LOGIN PAGE ================= -->
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
 
-    <section id="loginPage" class="screen login-page hidden">
-
-        <div class="background-train second-train">
-            🚆
-        </div>
-
-        <div class="content">
-
-            <div class="logo">
-                🚆 <span>RailTrack</span> <b>ETA</b>
             </div>
 
-            <h1>Welcome Back</h1>
 
-            <p class="tagline">
-                Continue your journey
-            </p>
+            <!-- Register -->
 
-            <div class="form">
+            <button
+                class="main-button"
+                onclick="registerUser()">
 
-                <div class="input">
-                    <span>📱</span>
-                    <input
-                        id="loginPhone"
-                        type="tel"
-                        maxlength="10"
-                        placeholder="Phone Number">
-                </div>
+                REGISTER
 
-                <div class="input">
-                    <span>🔒</span>
-                    <input
-                        id="loginPassword"
-                        type="password"
-                        placeholder="Password">
-                </div>
+            </button>
 
-                <button
-                    class="main-btn"
-                    onclick="loginUser()">
+
+            <!-- Login -->
+
+            <p class="login-option">
+
+                Already registered?
+
+                <button onclick="openLogin()">
                     LOGIN
                 </button>
 
-            </div>
-
-            <p class="bottom-text">
-                Don't have an account?
-                <button onclick="showRegister()">REGISTER</button>
             </p>
 
         </div>
 
-    </section>
+    </div>
+
 
 
     <!-- ================= SUCCESS PAGE ================= -->
 
-    <section id="successPage" class="screen success-page hidden">
+    <div
+        id="successPage"
+        class="page success-page hidden">
 
-        <div class="success-content">
+        <div class="success-container">
 
             <div class="success-icon">
                 ✓
             </div>
 
             <h1>
-                Registered!
+                You Registered Successfully!
             </h1>
 
-            <h2>
-                Your account was created successfully
-            </h2>
-
             <p>
-                You can now login to RailTrack ETA
-                and continue your journey.
+                Your RailTrack ETA account has been created.
             </p>
 
             <button
-                class="main-btn success-btn"
-                onclick="showLogin()">
+                class="main-button"
+                onclick="openLogin()">
+
                 LOGIN
+
             </button>
 
         </div>
 
-    </section>
+    </div>
 
-</div>
 
-<script src="script.js"></script>
+
+    <!-- ================= LOGIN PAGE ================= -->
+
+    <div
+        id="loginPage"
+        class="page login-page hidden">
+
+        <div class="login-container">
+
+            <div class="logo">
+                🚆 RailTrack <span>ETA</span>
+            </div>
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p class="subtitle">
+                Login to continue your journey
+            </p>
+
+
+            <div class="input-box">
+
+                <span>📱</span>
+
+                <input
+                    type="tel"
+                    id="loginPhone"
+                    placeholder="Enter your number"
+                    maxlength="10"
+                >
+
+            </div>
+
+
+            <div class="input-box">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                >
+
+            </div>
+
+
+            <button
+                class="main-button"
+                onclick="loginUser()">
+
+                LOGIN
+
+            </button>
+
+
+            <p class="login-option">
+
+                Don't have an account?
+
+                <button onclick="openRegister()">
+                    REGISTER
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
