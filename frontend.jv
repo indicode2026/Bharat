@@ -1,334 +1,95 @@
-/* =====================================================
-   RAILTRACK ETA - JAVASCRIPT
-   ===================================================== */
+function showLogin() {
 
+    document
+        .getElementById("registerScreen")
+        .classList.add("hidden");
 
-/* ================= MODAL FUNCTIONS ================= */
+    document
+        .getElementById("successScreen")
+        .classList.add("hidden");
 
-function openModal(id) {
-
-    const modal = document.getElementById(id);
-
-    if (modal) {
-        modal.classList.add("active");
-    }
+    document
+        .getElementById("loginScreen")
+        .classList.remove("hidden");
 }
 
 
-function closeModal(id) {
+function showRegister() {
 
-    const modal = document.getElementById(id);
+    document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
 
-    if (modal) {
-        modal.classList.remove("active");
-    }
+    document
+        .getElementById("successScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("registerScreen")
+        .classList.remove("hidden");
 }
 
 
-function switchModal(closeId, openId) {
+function registerUser() {
 
-    closeModal(closeId);
-
-    openModal(openId);
-}
-
-
-/* ================= CLOSE MODAL ON OUTSIDE CLICK ================= */
-
-window.addEventListener("click", function(event) {
-
-    if (event.target.classList.contains("modal")) {
-
-        event.target.classList.remove("active");
-
-    }
-
-});
-
-
-/* ================= CONTACT VALIDATION ================= */
-
-function validContact(value) {
-
-    value = value.trim();
-
-    // 10 digit Indian phone number
     const phone =
-        /^[6-9][0-9]{9}$/.test(value);
+        document.getElementById("phone").value.trim();
 
-    // Basic email validation
-    const email =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    const password =
+        document.getElementById("password").value.trim();
 
-    return phone || email;
+
+    if (phone === "" || password === "") {
+
+        alert("Please enter phone number and password.");
+
+        return;
+    }
+
+
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+
+        alert("Please enter a valid 10-digit phone number.");
+
+        return;
+    }
+
+
+    document
+        .getElementById("registerScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("successScreen")
+        .classList.remove("hidden");
 }
 
 
-/* ================= LOGIN ================= */
+function loginUser() {
 
-function login() {
+    const phone =
+        document.getElementById("loginPhone").value.trim();
 
-    const contact =
-        document
-        .getElementById("loginContact")
-        .value
-        .trim();
+    const password =
+        document.getElementById("loginPassword").value.trim();
 
 
-    if (contact === "") {
+    if (phone === "" || password === "") {
 
-        alert(
-            "Please enter your email ID or phone number."
-        );
+        alert("Please enter phone number and password.");
 
         return;
     }
 
 
-    if (!validContact(contact)) {
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
 
-        alert(
-            "Please enter a valid email ID or 10-digit phone number."
-        );
+        alert("Please enter a valid 10-digit phone number.");
 
         return;
     }
 
 
-    /*
-       FRONTEND DEMO
-
-       Real login will later be connected
-       with backend/database.
-    */
-
-    alert(
-        "Login successful! This is a frontend demo."
-    );
-
-
-    closeModal("loginModal");
+    alert("Login successful!");
 
 }
-
-
-/* ================= CREATE ACCOUNT ================= */
-
-function signup() {
-
-    const contact =
-        document
-        .getElementById("signupContact")
-        .value
-        .trim();
-
-
-    if (contact === "") {
-
-        alert(
-            "Please enter your email ID or phone number."
-        );
-
-        return;
-    }
-
-
-    if (!validContact(contact)) {
-
-        alert(
-            "Enter a valid email ID or 10-digit phone number."
-        );
-
-        return;
-    }
-
-
-    alert(
-        "Account created successfully! This is a frontend demo."
-    );
-
-
-    closeModal("signupModal");
-
-}
-
-
-/* ================= TRAIN SEARCH ================= */
-
-function searchTrain() {
-
-    const searchBox =
-        document.getElementById("trainSearch");
-
-    const result =
-        document.getElementById("result");
-
-
-    const query =
-        searchBox.value.trim();
-
-
-    /* Empty search */
-
-    if (query === "") {
-
-        result.innerHTML = `
-            <b>Please enter a train number or train name.</b>
-        `;
-
-        result.classList.remove("hidden");
-
-        return;
-    }
-
-
-    /*
-       DEMO TRAIN DATA
-
-       Later this can be replaced
-       with your backend/API.
-    */
-
-    const trains = {
-
-        "12301": {
-            name: "Rajdhani Express",
-            current: "Near Kanpur Central",
-            next: "Lucknow Junction",
-            status: "On Time",
-            eta: "08:42 PM"
-        },
-
-        "12302": {
-            name: "Rajdhani Express",
-            current: "Near Delhi",
-            next: "Kanpur Central",
-            status: "On Time",
-            eta: "10:15 PM"
-        },
-
-        "12001": {
-            name: "Shatabdi Express",
-            current: "Near New Delhi",
-            next: "Ghaziabad",
-            status: "On Time",
-            eta: "09:20 AM"
-        }
-
-    };
-
-
-    const train =
-        trains[query];
-
-
-    /* ================= TRAIN FOUND ================= */
-
-    if (train) {
-
-        result.innerHTML = `
-
-            <div>
-
-                <h3>
-                    🚆 ${train.name}
-                </h3>
-
-                <p>
-                    <b>Train Number:</b>
-                    ${query}
-                </p>
-
-                <p>
-                    <b>Current Position:</b>
-                    ${train.current}
-                </p>
-
-                <p>
-                    <b>Next Station:</b>
-                    ${train.next}
-                </p>
-
-                <p>
-                    <b>Status:</b>
-                    <span class="green">
-                        ${train.status}
-                    </span>
-                </p>
-
-                <p>
-                    <b>Expected Arrival:</b>
-                    ${train.eta}
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* ================= TRAIN NOT FOUND ================= */
-
-    else {
-
-        result.innerHTML = `
-
-            <div>
-
-                <h3>
-                    🔍 Train Search
-                </h3>
-
-                <p>
-                    No demo train found for
-                    <b>"${query}"</b>.
-                </p>
-
-                <p>
-                    Connect the project to a
-                    railway data source/API to
-                    search real trains.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    result.classList.remove("hidden");
-
-}
-
-
-/* ================= ENTER KEY SEARCH ================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        const searchBox =
-            document.getElementById("trainSearch");
-
-
-        if (searchBox) {
-
-            searchBox.addEventListener(
-                "keypress",
-                function(event) {
-
-                    if (event.key === "Enter") {
-
-                        searchTrain();
-
-                    }
-
-                }
-            );
-
-        }
-
-    }
-);
