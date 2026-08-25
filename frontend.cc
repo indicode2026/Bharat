@@ -4,28 +4,30 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     overflow: hidden;
 }
 
-.app {
-    width: 100%;
-    height: 100vh;
-}
 
-.screen {
-    width: 100%;
+/* ================= COMMON PAGE ================= */
+
+.page {
+
+    width: 100vw;
     height: 100vh;
 
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
-
-    overflow: hidden;
 }
+
 
 .hidden {
     display: none !important;
@@ -39,300 +41,18 @@ body {
     background:
         linear-gradient(
             135deg,
-            #ff4ecd 0%,
-            #7657ff 45%,
-            #20bfff 100%
+            #ff7a00,
+            #ff9f1c,
+            #ff4d00
         );
+
+    overflow: hidden;
 }
 
 
-/* Colourful circles */
+/* Background circles */
 
 .register-page::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 550px;
-    height: 550px;
-
-    border-radius: 50%;
-
-    background: #ffde59;
-
-    opacity: .35;
-
-    top: -250px;
-    left: -150px;
-}
-
-.register-page::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 450px;
-    height: 450px;
-
-    border-radius: 50%;
-
-    background: #00ffc8;
-
-    opacity: .25;
-
-    bottom: -200px;
-    right: -100px;
-}
-
-
-/* ================= TRAIN ================= */
-
-.background-train {
-
-    position: absolute;
-
-    z-index: 1;
-
-    font-size: min(48vw, 600px);
-
-    opacity: .20;
-
-    right: -5%;
-
-    bottom: -5%;
-
-    transform: rotate(-4deg);
-
-    filter:
-        drop-shadow(
-            0 20px 20px rgba(0,0,0,.25)
-        );
-
-    user-select: none;
-}
-
-.second-train {
-    opacity: .14;
-    left: -8%;
-    right: auto;
-    transform: scaleX(-1) rotate(-4deg);
-}
-
-
-/* ================= CONTENT ================= */
-
-.content {
-
-    position: relative;
-
-    z-index: 5;
-
-    width: min(90%, 650px);
-
-    text-align: center;
-
-    padding: 40px;
-
-    color: white;
-}
-
-
-/* ================= LOGO ================= */
-
-.logo {
-
-    font-size: clamp(24px, 3vw, 38px);
-
-    font-weight: 800;
-
-    margin-bottom: 25px;
-
-    text-shadow:
-        0 3px 15px rgba(0,0,0,.18);
-}
-
-.logo b {
-    color: #ffe75e;
-}
-
-
-/* ================= HEADINGS ================= */
-
-h1 {
-
-    font-size: clamp(42px, 6vw, 78px);
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
-
-    margin-bottom: 15px;
-
-    text-shadow:
-        0 5px 20px rgba(0,0,0,.18);
-}
-
-.tagline {
-
-    font-size: clamp(17px, 2vw, 23px);
-
-    margin-bottom: 35px;
-
-    opacity: .9;
-}
-
-
-/* ================= FORM ================= */
-
-.form {
-
-    width: min(100%, 430px);
-
-    margin: auto;
-}
-
-.input {
-
-    width: 100%;
-
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    background: rgba(255,255,255,.96);
-
-    border-radius: 17px;
-
-    padding: 0 20px;
-
-    margin-bottom: 15px;
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.15);
-}
-
-.input span {
-
-    font-size: 23px;
-}
-
-.input input {
-
-    width: 100%;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    font-size: 19px;
-
-    color: #252342;
-}
-
-.input input::placeholder {
-
-    color: #8a89a0;
-}
-
-
-/* ================= BUTTON ================= */
-
-.main-btn {
-
-    width: 100%;
-
-    height: 65px;
-
-    border: none;
-
-    border-radius: 17px;
-
-    color: white;
-
-    font-size: 19px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff315c,
-            #ff7a3d,
-            #ffcf33
-        );
-
-    box-shadow:
-        0 15px 35px rgba(255,49,92,.35);
-
-    transition: .25s;
-}
-
-.main-btn:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 20px 40px rgba(255,49,92,.45);
-}
-
-
-/* ================= BOTTOM LOGIN ================= */
-
-.bottom-text {
-
-    margin-top: 25px;
-
-    font-size: 16px;
-
-    color: white;
-}
-
-.bottom-text button {
-
-    border: none;
-
-    background: none;
-
-    color: #fff36b;
-
-    font-size: inherit;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    text-decoration: underline;
-}
-
-
-/* ================= LOGIN PAGE ================= */
-
-.login-page {
-
-    background:
-        linear-gradient(
-            135deg,
-            #00c6ff,
-            #0072ff,
-            #7b2cff
-        );
-}
-
-.login-page::before {
 
     content: "";
 
@@ -343,16 +63,276 @@ h1 {
 
     border-radius: 50%;
 
-    background: #ff3cac;
+    background: #ffd166;
 
-    opacity: .25;
+    opacity: 0.35;
 
-    top: -250px;
+    top: -300px;
+    left: -200px;
+}
+
+
+.register-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #ff3d00;
+
+    opacity: 0.25;
+
+    bottom: -250px;
     right: -150px;
 }
 
 
-/* ================= SUCCESS PAGE ================= */
+/* ================= TRAIN SKETCH ================= */
+
+.train-sketch {
+
+    position: absolute;
+
+    right: -80px;
+    bottom: -70px;
+
+    font-size: 500px;
+
+    opacity: 0.16;
+
+    filter:
+        grayscale(1)
+        contrast(1.5);
+
+    transform: rotate(-5deg);
+
+    z-index: 1;
+
+    user-select: none;
+}
+
+
+/* ================= REGISTER CONTENT ================= */
+
+.register-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 480px;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    color: white;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+.logo span {
+
+    color: #ffe066;
+}
+
+
+/* ================= HEADING ================= */
+
+h1 {
+
+    color: white;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    font-weight: 900;
+
+    line-height: 1.05;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.2);
+}
+
+
+.subtitle {
+
+    color: white;
+
+    font-size: 19px;
+
+    margin-bottom: 35px;
+
+    opacity: 0.9;
+}
+
+
+/* ================= INPUT ================= */
+
+.input-box {
+
+    width: 100%;
+
+    height: 68px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+    gap: 14px;
+
+    margin-bottom: 16px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.18);
+
+    transition: 0.25s;
+}
+
+
+.input-box:focus-within {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.25);
+}
+
+
+.input-box span {
+
+    font-size: 23px;
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 19px;
+
+    background: transparent;
+
+    color: #222;
+}
+
+
+.input-box input::placeholder {
+
+    color: #8b8b8b;
+}
+
+
+/* ================= BUTTON ================= */
+
+.main-button {
+
+    width: 100%;
+
+    height: 68px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    margin-top: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff006e,
+            #8338ec
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(131,56,236,0.35);
+
+    transition: 0.25s;
+}
+
+
+.main-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(131,56,236,0.45);
+}
+
+
+/* ================= LOGIN OPTION ================= */
+
+.login-option {
+
+    margin-top: 25px;
+
+    color: white;
+
+    font-size: 17px;
+}
+
+
+.login-option button {
+
+    background: none;
+
+    border: none;
+
+    color: #fff3a3;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+
+/* ================================================= */
+/* SUCCESS PAGE */
+/* ================================================= */
 
 .success-page {
 
@@ -360,55 +340,73 @@ h1 {
         linear-gradient(
             135deg,
             #00c853,
-            #00c6ff,
-            #6c4cff
+            #00bfa5,
+            #0072ff
         );
 }
 
-.success-content {
 
-    position: relative;
+.success-container {
 
-    z-index: 5;
+    width: min(90%, 700px);
 
     text-align: center;
 
     color: white;
 
-    width: min(90%, 700px);
+    position: relative;
 
-    padding: 30px;
+    z-index: 5;
 }
+
 
 .success-icon {
 
     width: 130px;
+
     height: 130px;
+
+    margin: 0 auto 30px;
 
     border-radius: 50%;
 
-    margin: 0 auto 30px;
+    background: white;
+
+    color: #00b95c;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     font-size: 75px;
 
     font-weight: 900;
 
-    background: white;
-
-    color: #00b95c;
-
     box-shadow:
-        0 20px 50px rgba(0,0,0,.2);
+        0 20px 50px rgba(0,0,0,0.2);
 
-    animation: pop .5s ease;
+    animation: successPop 0.5s ease;
 }
 
-@keyframes pop {
+
+.success-container h1 {
+
+    font-size: clamp(40px, 5vw, 65px);
+
+}
+
+
+.success-container p {
+
+    font-size: 20px;
+
+    margin: 20px 0 35px;
+}
+
+
+@keyframes successPop {
 
     0% {
         transform: scale(0);
@@ -423,39 +421,34 @@ h1 {
     }
 }
 
-.success-content h1 {
 
-    font-size: clamp(48px, 7vw, 82px);
+/* ================================================= */
+/* LOGIN PAGE */
+/* ================================================= */
 
-    margin-bottom: 15px;
+.login-page {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4361ee,
+            #7209b7,
+            #f72585
+        );
 }
 
-.success-content h2 {
 
-    font-size: clamp(22px, 3vw, 34px);
+.login-container {
 
-    margin-bottom: 15px;
-}
+    width: 480px;
 
-.success-content p {
+    max-width: 90%;
 
-    font-size: 18px;
+    text-align: center;
 
-    opacity: .9;
+    position: relative;
 
-    margin-bottom: 35px;
-}
-
-.success-btn {
-
-    width: min(100%, 400px);
-
-    background: white;
-
-    color: #624cff;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.2);
+    z-index: 5;
 }
 
 
@@ -463,41 +456,52 @@ h1 {
 
 @media (max-width: 600px) {
 
-    .content {
+    .register-container {
 
-        padding: 25px;
+        width: 92%;
+
+        padding: 20px;
     }
+
+
+    .logo {
+
+        font-size: 25px;
+
+        margin-bottom: 25px;
+    }
+
 
     h1 {
 
-        font-size: 45px;
-
-        letter-spacing: -1px;
+        font-size: 42px;
     }
 
-    .background-train {
 
-        font-size: 500px;
+    .subtitle {
 
-        right: -35%;
-
-        bottom: 5%;
+        font-size: 16px;
     }
 
-    .input,
-    .main-btn {
+
+    .input-box {
 
         height: 60px;
     }
 
-    .input input {
 
-        font-size: 17px;
+    .main-button {
+
+        height: 60px;
     }
 
-    .logo {
 
-        margin-bottom: 20px;
+    .train-sketch {
+
+        font-size: 300px;
+
+        right: -80px;
+        bottom: 0;
     }
 
 }
