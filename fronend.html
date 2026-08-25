@@ -5,508 +5,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RailTrack ETA | Smart Train Tracking</title>
+    <title>RailTrack ETA</title>
 
-    <!-- CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+    <div class="page">
 
-    <header class="topbar">
-
-        <div class="brand">
-            <span class="train-icon">🚆</span>
-            RailTrack <span>ETA</span>
-        </div>
-
-        <button class="outline-btn" onclick="openModal('loginModal')">
-            Login
-        </button>
-
-    </header>
+        <!-- Colourful Background -->
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
 
 
-    <!-- ================= MAIN ================= -->
+        <!-- Main Card -->
+        <div class="auth-card">
 
-    <main>
+            <!-- Train Illustration -->
+            <div class="train-area">
 
-        <!-- ================= HERO SECTION ================= -->
+                <div class="cloud cloud1"></div>
+                <div class="cloud cloud2"></div>
 
-        <section class="hero">
+                <div class="rail-track"></div>
 
-            <div class="hero-text">
+                <div class="train">
 
-                <p class="badge">
-                    SMART TRAIN TRACKING
-                </p>
+                    <div class="train-top"></div>
+
+                    <div class="train-body">
+
+                        <div class="window"></div>
+                        <div class="window"></div>
+
+                        <div class="train-door"></div>
+
+                    </div>
+
+                    <div class="train-front">
+                        <div class="light"></div>
+                    </div>
+
+                    <div class="wheel wheel1"></div>
+                    <div class="wheel wheel2"></div>
+                    <div class="wheel wheel3"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Logo -->
+            <div class="logo">
+                🚆 <span>RailTrack</span>
+                <b>ETA</b>
+            </div>
+
+
+            <!-- REGISTER SCREEN -->
+            <div id="registerScreen">
 
                 <h1>
-                    Know your train.
-                    <br>
-                    <span>Know your arrival.</span>
+                    Start Your Journey
                 </h1>
 
                 <p class="subtitle">
-                    Track train routes, stations, live position and
-                    estimated arrival time from one simple dashboard.
+                    Track your train journey with ease
                 </p>
 
-                <div class="hero-actions">
 
-                    <button
-                        class="primary-btn"
-                        onclick="openModal('loginModal')">
-                        Login
-                    </button>
+                <div class="input-box">
 
-                    <button
-                        class="secondary-btn"
-                        onclick="openModal('signupModal')">
-                        Create New Account
-                    </button>
+                    <span>📱</span>
+
+                    <input
+                        id="phone"
+                        type="tel"
+                        placeholder="Phone Number"
+                        maxlength="10"
+                    >
 
                 </div>
 
-            </div>
 
+                <div class="input-box">
 
-            <!-- TRAIN VISUAL -->
+                    <span>🔒</span>
 
-            <div class="train-card">
-
-                <div class="track-line"></div>
-
-                <div class="moving-train">
-                    🚆
-                </div>
-
-                <div class="station s1">
-                    Delhi
-                </div>
-
-                <div class="station s2">
-                    Kanpur
-                </div>
-
-                <div class="station s3">
-                    Lucknow
-                </div>
-
-
-                <div class="eta-box">
-
-                    <small>
-                        EXPECTED ARRIVAL
-                    </small>
-
-                    <b>
-                        08:42 PM
-                    </b>
-
-                    <span>
-                        On Time
-                    </span>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                    >
 
                 </div>
 
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= FEATURES ================= -->
-
-        <section class="features">
-
-            <div class="feature">
-
-                <b>
-                    📍 Live Position
-                </b>
-
-                <p>
-                    See the current location of a train
-                    on its route.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <b>
-                    🛤️ Route & Stations
-                </b>
-
-                <p>
-                    View the complete route and upcoming
-                    stations.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <b>
-                    ⏱️ Dynamic ETA
-                </b>
-
-                <p>
-                    Display estimated arrival time at
-                    selected stations.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <b>
-                    🔔 Train Status
-                </b>
-
-                <p>
-                    Quickly understand whether a train
-                    is on time or delayed.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= DASHBOARD ================= -->
-
-        <section class="dashboard-preview">
-
-            <div class="section-heading">
-
-                <p class="badge">
-                    PROJECT DASHBOARD
-                </p>
-
-                <h2>
-                    Train Tracking Preview
-                </h2>
-
-            </div>
-
-
-            <!-- SEARCH -->
-
-            <div class="search-row">
-
-                <input
-                    id="trainSearch"
-                    type="text"
-                    placeholder="Enter train number or train name"
-                >
 
                 <button
-                    class="primary-btn"
-                    onclick="searchTrain()">
+                    class="register-btn"
+                    onclick="registerUser()">
 
-                    Search Train
+                    REGISTER
+
+                </button>
+
+
+                <p class="login-text">
+
+                    Already registered?
+
+                    <button
+                        onclick="showLogin()">
+
+                        LOGIN
+
+                    </button>
+
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN SCREEN -->
+            <div
+                id="loginScreen"
+                class="hidden">
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p class="subtitle">
+                    Continue your journey
+                </p>
+
+
+                <div class="input-box">
+
+                    <span>📱</span>
+
+                    <input
+                        id="loginPhone"
+                        type="tel"
+                        placeholder="Phone Number"
+                        maxlength="10"
+                    >
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <span>🔒</span>
+
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        placeholder="Password"
+                    >
+
+                </div>
+
+
+                <button
+                    class="register-btn"
+                    onclick="loginUser()">
+
+                    LOGIN
+
+                </button>
+
+
+                <p class="login-text">
+
+                    New user?
+
+                    <button
+                        onclick="showRegister()">
+
+                        REGISTER
+
+                    </button>
+
+                </p>
+
+            </div>
+
+
+            <!-- SUCCESS SCREEN -->
+            <div
+                id="successScreen"
+                class="hidden success">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h1>
+                    Registered!
+                </h1>
+
+                <p>
+                    Your account has been
+                    created successfully.
+                </p>
+
+                <button
+                    class="register-btn"
+                    onclick="showLogin()">
+
+                    LOGIN
 
                 </button>
 
             </div>
 
-
-            <!-- SEARCH RESULT -->
-
-            <div
-                id="result"
-                class="result-card hidden">
-            </div>
-
-
-
-            <!-- ROUTE PANEL -->
-
-            <div class="route-panel">
-
-
-                <!-- TRAIN INFORMATION -->
-
-                <div class="route-info">
-
-                    <h3>
-                        12301 Rajdhani Express
-                    </h3>
-
-                    <p>
-                        <b>Current:</b>
-                        Near Kanpur Central
-                    </p>
-
-                    <p>
-                        <b>Next Station:</b>
-                        Lucknow Junction
-                    </p>
-
-                    <p>
-                        <b>Status:</b>
-
-                        <span class="green">
-                            On Time
-                        </span>
-
-                    </p>
-
-                    <p>
-                        <b>Expected Arrival:</b>
-                        08:42 PM
-                    </p>
-
-                </div>
-
-
-
-                <!-- ROUTE DIAGRAM -->
-
-                <div class="route-diagram">
-
-                    <div class="route-line"></div>
-
-
-                    <div class="node done">
-
-                        <span>
-                            Delhi
-                        </span>
-
-                    </div>
-
-
-                    <div class="node current">
-
-                        <span>
-                            Kanpur Central
-                        </span>
-
-                    </div>
-
-
-                    <div class="node">
-
-                        <span>
-                            Lucknow Junction
-                        </span>
-
-                    </div>
-
-
-                    <div class="node">
-
-                        <span>
-                            Gorakhpur
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        RailTrack ETA
-        <br>
-
-        <small>
-            SIH Project Prototype
-        </small>
-
-    </footer>
-
-
-
-    <!-- ================================================= -->
-    <!-- LOGIN MODAL -->
-    <!-- ================================================= -->
-
-    <div
-        class="modal"
-        id="loginModal">
-
-        <div class="modal-box">
-
-
-            <button
-                class="close"
-                onclick="closeModal('loginModal')">
-
-                ×
-
-            </button>
-
-
-            <div class="modal-logo">
-                🚆
-            </div>
-
-
-            <h2>
-                Welcome Back
-            </h2>
-
-
-            <p>
-                Login with email ID or phone number.
-            </p>
-
-
-            <input
-                id="loginContact"
-                type="text"
-                placeholder="Email ID or Phone Number"
-            >
-
-
-            <input
-                type="password"
-                placeholder="Password"
-            >
-
-
-            <button
-                class="primary-btn full"
-                onclick="login()">
-
-                Login
-
-            </button>
-
-
-            <p class="switch">
-
-                New user?
-
-                <a
-                    onclick="switchModal(
-                    'loginModal',
-                    'signupModal'
-                    )">
-
-                    Create an account
-
-                </a>
-
-            </p>
-
         </div>
 
     </div>
 
-
-
-    <!-- ================================================= -->
-    <!-- CREATE ACCOUNT MODAL -->
-    <!-- ================================================= -->
-
-    <div
-        class="modal"
-        id="signupModal">
-
-        <div class="modal-box">
-
-
-            <button
-                class="close"
-                onclick="closeModal('signupModal')">
-
-                ×
-
-            </button>
-
-
-            <div class="modal-logo">
-                🚆
-            </div>
-
-
-            <h2>
-                Create New Account
-            </h2>
-
-
-            <p>
-                Use either email ID or phone number.
-            </p>
-
-
-            <input
-                type="text"
-                placeholder="Full Name"
-            >
-
-
-            <input
-                id="signupContact"
-                type="text"
-                placeholder="Email ID or Phone Number"
-            >
-
-
-            <input
-                type="password"
-                placeholder="Create Password"
-            >
-
-
-            <input
-                type="password"
-                placeholder="Confirm Password"
-            >
-
-
-            <button
-                class="primary-btn full"
-                onclick="signup()">
-
-                Create Account
-
-            </button>
-
-
-            <p class="switch">
-
-                Already registered?
-
-                <a
-                    onclick="switchModal(
-                    'signupModal',
-                    'loginModal'
-                    )">
-
-                    Login
-
-                </a>
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ================= JAVASCRIPT ================= -->
 
     <script src="script.js"></script>
 
