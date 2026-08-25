@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RailTrack ETA | Smart Train Tracking</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="train-icon">🚆</span>
+            RailTrack <span>ETA</span>
+        </div>
+
+        <button class="outline-btn" onclick="openModal('loginModal')">
+            Login
+        </button>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        <!-- ================= HERO SECTION ================= -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="badge">
+                    SMART TRAIN TRACKING
+                </p>
+
+                <h1>
+                    Know your train.
+                    <br>
+                    <span>Know your arrival.</span>
+                </h1>
+
+                <p class="subtitle">
+                    Track train routes, stations, live position and
+                    estimated arrival time from one simple dashboard.
+                </p>
+
+                <div class="hero-actions">
+
+                    <button
+                        class="primary-btn"
+                        onclick="openModal('loginModal')">
+                        Login
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        onclick="openModal('signupModal')">
+                        Create New Account
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TRAIN VISUAL -->
+
+            <div class="train-card">
+
+                <div class="track-line"></div>
+
+                <div class="moving-train">
+                    🚆
+                </div>
+
+                <div class="station s1">
+                    Delhi
+                </div>
+
+                <div class="station s2">
+                    Kanpur
+                </div>
+
+                <div class="station s3">
+                    Lucknow
+                </div>
+
+
+                <div class="eta-box">
+
+                    <small>
+                        EXPECTED ARRIVAL
+                    </small>
+
+                    <b>
+                        08:42 PM
+                    </b>
+
+                    <span>
+                        On Time
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="features">
+
+            <div class="feature">
+
+                <b>
+                    📍 Live Position
+                </b>
+
+                <p>
+                    See the current location of a train
+                    on its route.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <b>
+                    🛤️ Route & Stations
+                </b>
+
+                <p>
+                    View the complete route and upcoming
+                    stations.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <b>
+                    ⏱️ Dynamic ETA
+                </b>
+
+                <p>
+                    Display estimated arrival time at
+                    selected stations.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <b>
+                    🔔 Train Status
+                </b>
+
+                <p>
+                    Quickly understand whether a train
+                    is on time or delayed.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard-preview">
+
+            <div class="section-heading">
+
+                <p class="badge">
+                    PROJECT DASHBOARD
+                </p>
+
+                <h2>
+                    Train Tracking Preview
+                </h2>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-row">
+
+                <input
+                    id="trainSearch"
+                    type="text"
+                    placeholder="Enter train number or train name"
+                >
+
+                <button
+                    class="primary-btn"
+                    onclick="searchTrain()">
+
+                    Search Train
+
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH RESULT -->
+
+            <div
+                id="result"
+                class="result-card hidden">
+            </div>
+
+
+
+            <!-- ROUTE PANEL -->
+
+            <div class="route-panel">
+
+
+                <!-- TRAIN INFORMATION -->
+
+                <div class="route-info">
+
+                    <h3>
+                        12301 Rajdhani Express
+                    </h3>
+
+                    <p>
+                        <b>Current:</b>
+                        Near Kanpur Central
+                    </p>
+
+                    <p>
+                        <b>Next Station:</b>
+                        Lucknow Junction
+                    </p>
+
+                    <p>
+                        <b>Status:</b>
+
+                        <span class="green">
+                            On Time
+                        </span>
+
+                    </p>
+
+                    <p>
+                        <b>Expected Arrival:</b>
+                        08:42 PM
+                    </p>
+
+                </div>
+
+
+
+                <!-- ROUTE DIAGRAM -->
+
+                <div class="route-diagram">
+
+                    <div class="route-line"></div>
+
+
+                    <div class="node done">
+
+                        <span>
+                            Delhi
+                        </span>
+
+                    </div>
+
+
+                    <div class="node current">
+
+                        <span>
+                            Kanpur Central
+                        </span>
+
+                    </div>
+
+
+                    <div class="node">
+
+                        <span>
+                            Lucknow Junction
+                        </span>
+
+                    </div>
+
+
+                    <div class="node">
+
+                        <span>
+                            Gorakhpur
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        RailTrack ETA
+        <br>
+
+        <small>
+            SIH Project Prototype
+        </small>
+
+    </footer>
+
+
+
+    <!-- ================================================= -->
+    <!-- LOGIN MODAL -->
+    <!-- ================================================= -->
+
+    <div
+        class="modal"
+        id="loginModal">
+
+        <div class="modal-box">
+
+
+            <button
+                class="close"
+                onclick="closeModal('loginModal')">
+
+                ×
+
+            </button>
+
+
+            <div class="modal-logo">
+                🚆
+            </div>
+
+
+            <h2>
+                Welcome Back
+            </h2>
+
+
+            <p>
+                Login with email ID or phone number.
+            </p>
+
+
+            <input
+                id="loginContact"
+                type="text"
+                placeholder="Email ID or Phone Number"
+            >
+
+
+            <input
+                type="password"
+                placeholder="Password"
+            >
+
+
+            <button
+                class="primary-btn full"
+                onclick="login()">
+
+                Login
+
+            </button>
+
+
+            <p class="switch">
+
+                New user?
+
+                <a
+                    onclick="switchModal(
+                    'loginModal',
+                    'signupModal'
+                    )">
+
+                    Create an account
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- CREATE ACCOUNT MODAL -->
+    <!-- ================================================= -->
+
+    <div
+        class="modal"
+        id="signupModal">
+
+        <div class="modal-box">
+
+
+            <button
+                class="close"
+                onclick="closeModal('signupModal')">
+
+                ×
+
+            </button>
+
+
+            <div class="modal-logo">
+                🚆
+            </div>
+
+
+            <h2>
+                Create New Account
+            </h2>
+
+
+            <p>
+                Use either email ID or phone number.
+            </p>
+
+
+            <input
+                type="text"
+                placeholder="Full Name"
+            >
+
+
+            <input
+                id="signupContact"
+                type="text"
+                placeholder="Email ID or Phone Number"
+            >
+
+
+            <input
+                type="password"
+                placeholder="Create Password"
+            >
+
+
+            <input
+                type="password"
+                placeholder="Confirm Password"
+            >
+
+
+            <button
+                class="primary-btn full"
+                onclick="signup()">
+
+                Create Account
+
+            </button>
+
+
+            <p class="switch">
+
+                Already registered?
+
+                <a
+                    onclick="switchModal(
+                    'signupModal',
+                    'loginModal'
+                    )">
+
+                    Login
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
