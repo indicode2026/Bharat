@@ -1,1134 +1,683 @@
-/* =====================================================
-   RAILTRACK ETA - MAIN CSS
-   ===================================================== */
-
-
-/* ================= GLOBAL ================= */
-
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f5f8fc;
-    color: #132238;
-    line-height: 1.5;
-}
-
-
-/* ================= HEADER ================= */
-
-.topbar {
-    height: 72px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #e5eaf0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 7%;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 100;
-}
-
-
-/* LOGO */
-
-.brand {
-    font-size: 23px;
-    font-weight: 800;
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-}
-
-.brand span:last-child {
-    color: #246bfe;
-}
-
-.train-icon {
-    font-size: 28px;
-}
-
-
-/* LOGIN BUTTON */
-
-.outline-btn {
-    border: 1px solid #246bfe;
-
-    color: #246bfe;
-
-    background: white;
-
-    padding: 10px 25px;
-
-    border-radius: 9px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.outline-btn:hover {
-    background: #246bfe;
-    color: white;
-}
-
-
-/* ================= HERO ================= */
-
-.hero {
-
-    min-height: 560px;
-
-    padding: 75px 7%;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 50px;
-
-    align-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f7fbff,
-            #eaf2ff
-        );
-}
-
-
-/* HERO TEXT */
-
-.hero-text {
-    max-width: 650px;
-}
-
-
-/* BADGE */
-
-.badge {
-
-    display: inline-block;
-
-    color: #246bfe;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    background: #e5efff;
-
-    padding: 7px 12px;
-
-    border-radius: 20px;
-
-    margin-bottom: 16px;
-}
-
-
-/* HEADING */
-
-.hero h1 {
-
-    font-size: 54px;
-
-    line-height: 1.08;
-
-    letter-spacing: -2px;
-
-    color: #132238;
-}
-
-.hero h1 span {
-    color: #246bfe;
-}
-
-
-/* DESCRIPTION */
-
-.subtitle {
-
-    font-size: 18px;
-
-    line-height: 1.7;
-
-    color: #5b6b7e;
-
-    max-width: 580px;
-
-    margin: 20px 0 28px;
-}
-
-
-/* HERO BUTTONS */
-
-.hero-actions {
-
-    display: flex;
-
-    gap: 12px;
-}
-
-
-/* ================= BUTTONS ================= */
-
-button {
-    font: inherit;
-
-    cursor: pointer;
-
-    border: 0;
-}
-
-
-.primary-btn {
-
-    background: #246bfe;
-
-    color: white;
-
-    padding: 13px 22px;
-
-    border-radius: 9px;
-
-    font-weight: 700;
-
-    transition: 0.2s;
-}
-
-.primary-btn:hover {
-
-    background: #1857d8;
-
-    transform: translateY(-1px);
-}
-
-
-.secondary-btn {
-
-    background: white;
-
-    color: #246bfe;
-
-    border: 1px solid #cddcff;
-
-    padding: 13px 22px;
-
-    border-radius: 9px;
-
-    font-weight: 700;
-
-    transition: 0.2s;
-}
-
-.secondary-btn:hover {
-
-    background: #edf4ff;
-
-}
-
-
-/* ================= TRAIN CARD ================= */
-
-.train-card {
-
-    height: 360px;
-
-    background: white;
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 20px 60px rgba(23, 61, 112, 0.10);
-
-    position: relative;
-
-    padding: 30px;
-
     overflow: hidden;
 }
 
 
-/* TRAIN TRACK */
+/* ================= PAGE ================= */
 
-.track-line {
-
-    position: absolute;
-
-    left: 12%;
-
-    right: 12%;
-
-    top: 50%;
-
-    height: 5px;
-
-    background: #d8e2f0;
-
-    border-radius: 10px;
-}
-
-
-/* TRAIN */
-
-.moving-train {
-
-    position: absolute;
-
-    top: 41%;
-
-    left: 43%;
-
-    font-size: 58px;
-
-    filter:
-        drop-shadow(
-            0 7px 8px rgba(0,0,0,0.15)
-        );
-
-    animation: trainMove 3s ease-in-out infinite;
-}
-
-
-@keyframes trainMove {
-
-    0% {
-        transform: translateX(-12px);
-    }
-
-    50% {
-        transform: translateX(12px);
-    }
-
-    100% {
-        transform: translateX(-12px);
-    }
-
-}
-
-
-/* STATIONS */
-
-.station {
-
-    position: absolute;
-
-    top: 55%;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    color: #40536b;
-}
-
-.s1 {
-    left: 11%;
-}
-
-.s2 {
-    left: 46%;
-}
-
-.s3 {
-    right: 10%;
-}
-
-
-/* ETA BOX */
-
-.eta-box {
-
-    position: absolute;
-
-    bottom: 28px;
-
-    left: 30px;
-
-    background: #f2f7ff;
-
-    padding: 15px 20px;
-
-    border-radius: 13px;
-
-    display: grid;
-
-    gap: 4px;
-
-    min-width: 180px;
-}
-
-
-.eta-box small {
-
-    color: #66778c;
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-
-.eta-box b {
-
-    font-size: 23px;
-
-    color: #132238;
-}
-
-
-.eta-box span {
-
-    color: #159447;
-
-    font-weight: 700;
-
-    font-size: 13px;
-}
-
-
-/* ================= FEATURES ================= */
-
-.features {
-
-    padding: 55px 7%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 18px;
-
-    background: white;
-}
-
-
-.feature {
-
-    padding: 24px;
-
-    border: 1px solid #e4eaf1;
-
-    border-radius: 15px;
-
-    background: white;
-
-    transition: 0.25s;
-}
-
-
-.feature:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 12px 30px rgba(30, 65, 110, 0.08);
-}
-
-
-.feature b {
-
-    font-size: 16px;
-
-    color: #17283d;
-}
-
-
-.feature p {
-
-    color: #68778a;
-
-    margin-top: 9px;
-
-    line-height: 1.5;
-
-    font-size: 14px;
-}
-
-
-/* ================= DASHBOARD ================= */
-
-.dashboard-preview {
-
-    padding: 70px 7%;
-
-    background: #f5f8fc;
-}
-
-
-.section-heading h2 {
-
-    font-size: 34px;
-
-    margin-bottom: 25px;
-}
-
-
-/* SEARCH */
-
-.search-row {
+.page {
+    min-height: 100vh;
 
     display: flex;
-
-    gap: 10px;
-
-    max-width: 700px;
-
-    margin-bottom: 25px;
-}
-
-
-.search-row input {
-
-    flex: 1;
-}
-
-
-/* ALL INPUTS */
-
-input {
-
-    padding: 14px;
-
-    border: 1px solid #d5dde7;
-
-    border-radius: 9px;
-
-    outline: none;
-
-    background: white;
-
-    font-size: 15px;
-
-    transition: 0.2s;
-}
-
-
-input:focus {
-
-    border-color: #246bfe;
-
-    box-shadow:
-        0 0 0 3px rgba(36,107,254,0.08);
-}
-
-
-/* SEARCH RESULT */
-
-.result-card {
-
-    background: #eaf8ef;
-
-    border: 1px solid #bde5c9;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    margin-bottom: 20px;
-
-    color: #176c35;
-}
-
-
-.result-card span {
-
-    color: #4e6958;
-
-    font-size: 14px;
-}
-
-
-.hidden {
-
-    display: none;
-}
-
-
-/* ================= ROUTE PANEL ================= */
-
-.route-panel {
-
-    background: white;
-
-    border: 1px solid #e2e8ef;
-
-    border-radius: 18px;
-
-    padding: 30px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1.5fr;
-
-    gap: 30px;
-
-    box-shadow:
-        0 8px 30px rgba(30,65,110,0.04);
-}
-
-
-/* TRAIN INFO */
-
-.route-info h3 {
-
-    font-size: 21px;
-
-    margin-bottom: 18px;
-}
-
-
-.route-info p {
-
-    margin: 13px 0;
-
-    color: #56677b;
-}
-
-
-.route-info b {
-
-    color: #26384e;
-}
-
-
-.green {
-
-    color: #159447;
-
-    font-weight: 700;
-}
-
-
-/* ================= ROUTE DIAGRAM ================= */
-
-.route-diagram {
+    align-items: center;
+    justify-content: center;
 
     position: relative;
 
-    min-height: 220px;
+    overflow: hidden;
 
-    padding: 20px 0;
+    background:
+        linear-gradient(
+            135deg,
+            #6a11cb,
+            #2575fc,
+            #00c6ff
+        );
 }
 
 
-/* VERTICAL LINE */
+/* ================= COLOURFUL BLOBS ================= */
 
-.route-line {
-
+.blob {
     position: absolute;
-
-    left: 20px;
-
-    top: 30px;
-
-    bottom: 30px;
-
-    width: 4px;
-
-    background: #d7e0ec;
-
-    border-radius: 10px;
-}
-
-
-/* STATION NODE */
-
-.node {
-
-    position: relative;
-
-    margin-bottom: 35px;
-
-    padding-left: 55px;
-
-    color: #6a7787;
-
-    min-height: 20px;
-}
-
-
-.node:before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 12px;
-
-    top: 1px;
-
-    width: 14px;
-
-    height: 14px;
-
-    background: white;
-
-    border: 4px solid #cbd5e1;
 
     border-radius: 50%;
 
-    z-index: 2;
+    filter: blur(2px);
+
+    opacity: 0.45;
+}
+
+.blob1 {
+    width: 400px;
+    height: 400px;
+
+    background: #ff4ecd;
+
+    top: -150px;
+    left: -100px;
+}
+
+.blob2 {
+    width: 350px;
+    height: 350px;
+
+    background: #ffe600;
+
+    bottom: -130px;
+    right: -80px;
+}
+
+.blob3 {
+    width: 250px;
+    height: 250px;
+
+    background: #00ffb3;
+
+    top: 40%;
+    right: 5%;
 }
 
 
-.node.done:before {
+/* ================= CARD ================= */
 
-    border-color: #246bfe;
+.auth-card {
 
-    background: #246bfe;
-}
+    width: 430px;
 
+    min-height: 690px;
 
-.node.current:before {
-
-    border-color: #f59e0b;
-
-    background: #f59e0b;
-
-    box-shadow:
-        0 0 0 6px rgba(245,158,11,0.12);
-}
-
-
-.node span {
-
-    font-weight: 700;
-
-    color: #40536b;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer {
-
-    text-align: center;
-
-    padding: 30px;
-
-    color: #738196;
-
-    background: white;
-
-    border-top: 1px solid #e5eaf0;
-}
-
-
-footer small {
-
-    font-size: 12px;
-}
-
-
-/* ================= MODAL ================= */
-
-.modal {
-
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
+    padding: 25px 40px 35px;
 
     background:
-        rgba(16, 36, 61, 0.60);
+        rgba(255,255,255,0.95);
 
-    align-items: center;
+    border-radius: 32px;
 
-    justify-content: center;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.25);
 
-    z-index: 500;
-
-    padding: 20px;
-
-    backdrop-filter: blur(4px);
-}
-
-
-.modal.active {
-
-    display: flex;
-}
-
-
-/* MODAL BOX */
-
-.modal-box {
-
-    background: white;
-
-    width: 100%;
-
-    max-width: 420px;
-
-    border-radius: 18px;
-
-    padding: 34px;
+    text-align: center;
 
     position: relative;
 
-    box-shadow:
-        0 20px 70px rgba(0,0,0,0.25);
+    z-index: 5;
 
-    animation: modalOpen 0.2s ease;
+    backdrop-filter: blur(20px);
+
+    animation: cardAppear 0.6s ease;
 }
 
 
-@keyframes modalOpen {
+@keyframes cardAppear {
 
     from {
-
         opacity: 0;
-
-        transform: scale(0.95);
-
+        transform: translateY(30px);
     }
 
     to {
-
         opacity: 1;
-
-        transform: scale(1);
-
+        transform: translateY(0);
     }
 
 }
 
 
-/* CLOSE BUTTON */
+/* ================= TRAIN AREA ================= */
 
-.close {
+.train-area {
 
-    position: absolute;
+    height: 190px;
 
-    right: 18px;
+    position: relative;
 
-    top: 12px;
-
-    background: none;
-
-    font-size: 28px;
-
-    color: #667;
-
-    cursor: pointer;
-}
-
-
-.close:hover {
-
-    color: #111;
-}
-
-
-/* MODAL LOGO */
-
-.modal-logo {
-
-    text-align: center;
-
-    font-size: 45px;
+    overflow: hidden;
 
     margin-bottom: 5px;
 }
 
 
-.modal-box h2 {
+/* RAIL */
 
-    text-align: center;
+.rail-track {
 
-    margin: 8px 0;
+    position: absolute;
 
-    font-size: 27px;
-}
+    bottom: 27px;
 
-
-.modal-box > p {
-
-    text-align: center;
-
-    color: #68778a;
-
-    margin-bottom: 18px;
-}
-
-
-/* MODAL INPUT */
-
-.modal-box input {
+    left: 0;
 
     width: 100%;
 
-    margin: 6px 0;
+    height: 7px;
+
+    background: #29304d;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 13px 0 #29304d;
 }
 
 
-/* FULL BUTTON */
+/* TRAIN */
 
-.full {
+.train {
+
+    position: absolute;
+
+    bottom: 38px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 280px;
+
+    height: 100px;
+
+    animation: trainFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes trainFloat {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-6px);
+    }
+
+}
+
+
+/* TRAIN BODY */
+
+.train-body {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 15px;
+
+    width: 210px;
+
+    height: 70px;
+
+    border-radius: 18px 8px 8px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4b7d,
+            #ff8a3d
+        );
+
+    border: 4px solid #242747;
+}
+
+
+/* TRAIN FRONT */
+
+.train-front {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 28px;
+
+    width: 75px;
+
+    height: 57px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7257ff,
+            #3d8bff
+        );
+
+    border-radius:
+        5px 20px 20px 5px;
+
+    border: 4px solid #242747;
+}
+
+
+/* WINDOWS */
+
+.window {
+
+    display: inline-block;
+
+    width: 42px;
+
+    height: 27px;
+
+    margin: 12px 4px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9f6ff,
+            #74d8ff
+        );
+
+    border: 3px solid #242747;
+}
+
+
+/* DOOR */
+
+.train-door {
+
+    position: absolute;
+
+    right: 12px;
+
+    bottom: 0;
+
+    width: 28px;
+
+    height: 48px;
+
+    background: #ffd447;
+
+    border: 3px solid #242747;
+
+    border-radius: 5px 5px 0 0;
+}
+
+
+/* LIGHT */
+
+.light {
+
+    width: 14px;
+
+    height: 14px;
+
+    background: #ffe600;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    right: 7px;
+
+    top: 20px;
+
+    box-shadow:
+        0 0 15px #ffe600;
+}
+
+
+/* WHEELS */
+
+.wheel {
+
+    position: absolute;
+
+    bottom: -8px;
+
+    width: 32px;
+
+    height: 32px;
+
+    background: #252945;
+
+    border: 5px solid white;
+
+    border-radius: 50%;
+}
+
+.wheel1 {
+    left: 35px;
+}
+
+.wheel2 {
+    left: 125px;
+}
+
+.wheel3 {
+    right: 20px;
+}
+
+
+/* ================= CLOUDS ================= */
+
+.cloud {
+
+    position: absolute;
+
+    width: 70px;
+    height: 25px;
+
+    background: #e9f7ff;
+
+    border-radius: 30px;
+
+    opacity: 0.8;
+}
+
+.cloud:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    background: #e9f7ff;
+
+    border-radius: 50%;
+
+    left: 15px;
+
+    top: -15px;
+}
+
+.cloud1 {
+    top: 35px;
+    left: 25px;
+}
+
+.cloud2 {
+    top: 65px;
+    right: 25px;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    color: #252945;
+
+    margin-bottom: 25px;
+}
+
+.logo b {
+
+    color: #7257ff;
+}
+
+
+/* ================= HEADINGS ================= */
+
+h1 {
+
+    font-size: 32px;
+
+    color: #20243d;
+
+    margin-bottom: 7px;
+}
+
+.subtitle {
+
+    color: #7a8197;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ================= INPUT ================= */
+
+.input-box {
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #f5f6fb;
+
+    border: 2px solid transparent;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+
+    padding: 0 17px;
+
+    transition: 0.25s;
+}
+
+.input-box:focus-within {
+
+    border-color: #7257ff;
+
+    background: white;
+
+    box-shadow:
+        0 5px 20px rgba(114,87,255,0.12);
+}
+
+.input-box span {
+
+    font-size: 21px;
+}
+
+.input-box input {
 
     width: 100%;
 
-    margin-top: 10px;
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 17px;
+
+    color: #242747;
+}
+
+.input-box input::placeholder {
+
+    color: #a0a5b7;
 }
 
 
-/* SWITCH */
+/* ================= REGISTER BUTTON ================= */
 
-.switch {
+.register-btn {
+
+    width: 100%;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4b7d,
+            #7257ff,
+            #2575fc
+        );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(114,87,255,0.3);
+
+    transition: 0.25s;
+}
+
+.register-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(114,87,255,0.4);
+}
+
+
+/* ================= LOGIN TEXT ================= */
+
+.login-text {
+
+    margin-top: 22px;
+
+    color: #7a8197;
+
+    font-size: 14px;
+}
+
+.login-text button {
+
+    border: none;
+
+    background: none;
+
+    color: #7257ff;
+
+    font-weight: 800;
+
+    cursor: pointer;
 
     font-size: 14px;
 }
 
 
-.switch a {
+/* ================= SUCCESS ================= */
 
-    color: #246bfe;
-
-    font-weight: 700;
-
-    cursor: pointer;
+.hidden {
+    display: none;
 }
 
+.success {
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1000px) {
-
-    .hero {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .hero-text {
-
-        max-width: 800px;
-    }
-
-    .features {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-    .route-panel {
-
-        grid-template-columns: 1fr;
-
-    }
-
+    padding-top: 30px;
 }
 
+.success-icon {
 
-/* TABLET */
+    width: 100px;
 
-@media (max-width: 700px) {
+    height: 100px;
 
-    .topbar {
+    margin: 20px auto;
 
-        padding: 0 4%;
+    display: flex;
 
-    }
+    align-items: center;
 
-    .hero {
+    justify-content: center;
 
-        padding: 55px 5%;
+    border-radius: 50%;
 
-    }
+    font-size: 55px;
 
-    .dashboard-preview {
-
-        padding: 55px 5%;
-
-    }
-
-    .features {
-
-        padding: 45px 5%;
-
-    }
-
-    .hero h1 {
-
-        font-size: 43px;
-
-    }
-
-    .subtitle {
-
-        font-size: 16px;
-
-    }
-
-}
-
-
-/* MOBILE */
-
-@media (max-width: 550px) {
-
-    .brand {
-
-        font-size: 18px;
-
-    }
-
-    .train-icon {
-
-        font-size: 23px;
-
-    }
-
-    .outline-btn {
-
-        padding: 8px 18px;
-
-    }
-
-
-    .hero {
-
-        padding-top: 45px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size: 37px;
-
-        letter-spacing: -1px;
-
-    }
-
-
-    .hero-actions {
-
-        flex-direction: column;
-
-    }
-
-
-    .hero-actions button {
-
-        width: 100%;
-
-    }
-
-
-    .train-card {
-
-        height: 300px;
-
-    }
-
-
-    .moving-train {
-
-        font-size: 45px;
-
-    }
-
-
-    .features {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .search-row {
-
-        flex-direction: column;
-
-    }
-
-
-    .search-row button {
-
-        width: 100%;
-
-    }
-
-
-    .route-panel {
-
-        padding: 20px;
-
-    }
-
-
-    .modal-box {
-
-        padding: 25px 20px;
-
-    }
-
-}
-
-
-/* ================= EXTRA UI EFFECTS ================= */
-
-::selection {
-
-    background: #246bfe;
+    font-weight: bold;
 
     color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c853,
+            #00e676
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,200,83,0.3);
+
+    animation: successPop 0.5s ease;
 }
 
 
-::-webkit-scrollbar {
+@keyframes successPop {
 
-    width: 8px;
+    0% {
+        transform: scale(0);
+    }
 
-}
+    70% {
+        transform: scale(1.1);
+    }
 
-
-::-webkit-scrollbar-track {
-
-    background: #f1f4f8;
-
-}
-
-
-::-webkit-scrollbar-thumb {
-
-    background: #b8c5d6;
-
-    border-radius: 10px;
+    100% {
+        transform: scale(1);
+    }
 
 }
 
 
-::-webkit-scrollbar-thumb:hover {
+.success p {
 
-    background: #246bfe;
+    color: #7a8197;
+
+    margin: 10px 0 30px;
+
+    font-size: 16px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 500px) {
+
+    .auth-card {
+
+        width: 92%;
+
+        min-height: 650px;
+
+        padding:
+            20px 25px 30px;
+
+    }
+
+    .train {
+
+        transform:
+            translateX(-50%)
+            scale(0.8);
+    }
+
+    h1 {
+
+        font-size: 28px;
+    }
+
+    .logo {
+
+        font-size: 22px;
+    }
 
 }
