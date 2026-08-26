@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        RailTrack ETA Dashboard
+    </title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- DASHBOARD CSS -->
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         AUTH CHECK LOADING
+         ======================================== -->
+
+    <div
+        id="authLoader"
+        class="auth-loader"
+    >
+
+        <div class="auth-loader-circle"></div>
+
+        <p>
+            Checking login...
+        </p>
+
+    </div>
+
+
+
+    <!-- ========================================
+         DASHBOARD PAGE
+         ======================================== -->
+
+    <div
+        id="dashboardPage"
+        class="hidden"
+    >
+
+
+        <!-- ========================================
+             NAVBAR
+             ======================================== -->
+
+        <nav class="navbar">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🚆
+                </div>
+
+
+                <div>
+
+                    <h2>
+
+                        RailTrack
+
+                        <span>
+                            ETA
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+                        Dynamic Train Forecasting
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="nav-right">
+
+
+                <!-- LOGGED USER -->
+
+                <div class="user-status">
+
+                    <span class="status-dot"></span>
+
+                    <span id="loggedUser">
+                        Logged in
+                    </span>
+
+                </div>
+
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    class="logout-btn"
+                    id="logoutButton"
+                    type="button"
+                >
+
+                    Logout
+
+                </button>
+
+
+            </div>
+
+
+        </nav>
+
+
+
+        <!-- ========================================
+             MAIN CONTENT
+             ======================================== -->
+
+        <main class="main-container">
+
+
+            <!-- ========================================
+                 WELCOME SECTION
+                 ======================================== -->
+
+            <section class="welcome-section">
+
+
+                <!-- TRAIN GRAPHIC -->
+
+                <div
+                    class="dashboard-train-graphic"
+                    aria-hidden="true"
+                >
+
+                    <div
+                        class="graphic-line line-one"
+                    ></div>
+
+                    <div
+                        class="graphic-line line-two"
+                    ></div>
+
+                    <div class="graphic-train">
+                        🚄
+                    </div>
+
+                </div>
+
+
+
+                <h1>
+                    Find Your Train
+                </h1>
+
+
+                <p>
+
+                    Enter your PNR number or train number
+                    to generate live journey information
+                    and ETA.
+
+                </p>
+
+
+            </section>
+
+
+
+            <!-- ========================================
+                 SEARCH OPTIONS
+                 ======================================== -->
+
+            <section class="search-options">
+
+
+                <!-- ========================================
+                     PNR CARD
+                     ======================================== -->
+
+                <div class="search-card">
+
+
+                    <div class="card-icon">
+
+                        🎫
+
+                    </div>
+
+
+                    <h2>
+                        PNR Number
+                    </h2>
+
+
+                    <p>
+
+                        Check your journey details,
+                        train information and expected arrival.
+
+                    </p>
+
+
+                    <input
+                        type="text"
+                        id="pnrInput"
+                        placeholder="Enter 10-digit PNR"
+                        maxlength="10"
+                        inputmode="numeric"
+                    >
+
+
+                    <button
+                        class="enter-btn"
+                        id="pnrButton"
+                        type="button"
+                    >
+
+                        ENTER
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- ========================================
+                     TRAIN NUMBER CARD
+                     ======================================== -->
+
+                <div class="search-card">
+
+
+                    <div class="card-icon">
+
+                        🚆
+
+                    </div>
+
+
+                    <h2>
+                        Train Number
+                    </h2>
+
+
+                    <p>
+
+                        Track a train and view its
+                        current location, delay and
+                        predicted ETA.
+
+                    </p>
+
+
+                    <input
+                        type="text"
+                        id="trainInput"
+                        placeholder="Enter train number"
+                        maxlength="5"
+                        inputmode="numeric"
+                    >
+
+
+                    <button
+                        class="enter-btn"
+                        id="trainButton"
+                        type="button"
+                    >
+
+                        ENTER
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ========================================
+                 LOADING BOX
+                 ======================================== -->
+
+            <div
+                id="loadingBox"
+                class="loading-box hidden"
+            >
+
+
+                <div class="loader"></div>
+
+
+                <h3>
+
+                    Generating Information...
+
+                </h3>
+
+
+                <p>
+
+                    Fetching train data and
+                    calculating ETA
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ========================================
+                 RESULT BOX
+                 ======================================== -->
+
+            <section
+                id="resultBox"
+                class="result-box hidden"
+            >
+
+
+                <!-- ========================================
+                     RESULT HEADER
+                     ======================================== -->
+
+                <div class="result-header">
+
+
+                    <!-- TRAIN INFORMATION -->
+
+                    <div>
+
+
+                        <span class="status-badge">
+
+                            ● LIVE DATA
+
+                        </span>
+
+
+                        <h2 id="resultTrainName">
+
+                            Rajdhani Express
+
+                        </h2>
+
+
+                        <p id="resultTrainNumber">
+
+                            Train No. 12302
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- ETA -->
+
+                    <div class="eta-section">
+
+
+                        <p>
+                            Predicted ETA
+                        </p>
+
+
+                        <h1 id="resultETA">
+
+                            10:42 AM
+
+                        </h1>
+
+
+                        <span id="resultDelay">
+
+                            +37 min delay
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ========================================
+                     INFORMATION GRID
+                     ======================================== -->
+
+                <div class="information-grid">
+
+
+                    <!-- CURRENT LOCATION -->
+
+                    <div class="info-card">
+
+                        <span>
+                            Current Location
+                        </span>
+
+                        <strong id="currentLocation">
+
+                            Prayagraj Jn
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- NEXT STATION -->
+
+                    <div class="info-card">
+
+                        <span>
+                            Next Station
+                        </span>
+
+                        <strong id="nextStation">
+
+                            Pt. DDU Jn
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- CURRENT SPEED -->
+
+                    <div class="info-card">
+
+                        <span>
+                            Current Speed
+                        </span>
+
+                        <strong id="currentSpeed">
+
+                            112 km/h
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- SCHEDULED ARRIVAL -->
+
+                    <div class="info-card">
+
+                        <span>
+                            Scheduled Arrival
+                        </span>
+
+                        <strong id="scheduledArrival">
+
+                            10:05 AM
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ========================================
+                     JOURNEY ROUTE
+                     ======================================== -->
+
+                <div class="route-section">
+
+
+                    <h3>
+                        Journey Route
+                    </h3>
+
+
+                    <div class="route">
+
+
+                        <!-- NEW DELHI -->
+
+                        <div class="station completed">
+
+                            <div class="station-dot">
+                                ✓
+                            </div>
+
+                            <span>
+                                New Delhi
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="route-line"></div>
+
+
+
+                        <!-- KANPUR -->
+
+                        <div class="station completed">
+
+                            <div class="station-dot">
+                                ✓
+                            </div>
+
+                            <span>
+                                Kanpur
+                            </span>
+
+                        </div>
+
+
+
+                        <div
+                            class="route-line active-line"
+                        ></div>
+
+
+
+                        <!-- PRAYAGRAJ -->
+
+                        <div class="station current">
+
+                            <div class="station-dot">
+                                ●
+                            </div>
+
+                            <span>
+                                Prayagraj
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="route-line"></div>
+
+
+
+                        <!-- DDU -->
+
+                        <div class="station">
+
+                            <div class="station-dot">
+                                ○
+                            </div>
+
+                            <span>
+                                DDU
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="route-line"></div>
+
+
+
+                        <!-- HOWRAH -->
+
+                        <div class="station">
+
+                            <div class="station-dot">
+                                ○
+                            </div>
+
+                            <span>
+                                Howrah
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ========================================
+                     LAST UPDATED
+                     ======================================== -->
+
+                <div
+                    class="update-time"
+                    id="updateTime"
+                >
+
+                    Last updated just now
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- ========================================
+         DASHBOARD JAVASCRIPT
+         ======================================== -->
+
+    <script
+        type="module"
+        src="dashboard.js"
+    ></script>
+
+
+</body>
+
+</html>
