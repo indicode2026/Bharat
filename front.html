@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RailTrack ETA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #08111f;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 430px;
+            padding: 25px;
+        }
+
+        .auth-card {
+            background: #101c2d;
+            border: 1px solid #243247;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 12px;
+
+            border-radius: 14px;
+            background: #1769e0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 26px;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #3b91ff;
+        }
+
+        .logo p {
+            margin-top: 8px;
+            color: #8795aa;
+            font-size: 13px;
+        }
+
+        .form-title {
+            margin-bottom: 22px;
+        }
+
+        .form-title h2 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .form-title p {
+            color: #8795aa;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #718096;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 13px 14px 13px 42px;
+
+            background: #0b1524;
+            border: 1px solid #2a3950;
+            border-radius: 10px;
+
+            color: white;
+            font-size: 14px;
+
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #1769e0;
+            box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.12);
+        }
+
+        .main-button {
+            width: 100%;
+            padding: 13px;
+
+            margin-top: 8px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #1769e0;
+            color: white;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .main-button:hover {
+            background: #125ac3;
+            transform: translateY(-1px);
+        }
+
+        .switch-text {
+            text-align: center;
+            margin-top: 22px;
+
+            color: #8795aa;
+            font-size: 13px;
+        }
+
+        .switch-button {
+            border: none;
+            background: none;
+
+            color: #3b91ff;
+            font-weight: 600;
+
+            cursor: pointer;
+            margin-left: 4px;
+        }
+
+        .switch-button:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .message {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .error {
+            color: #f87171;
+        }
+
+        .success {
+            color: #4ade80;
+        }
+
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 30px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <!-- LOGIN -->
+    <div class="auth-card" id="loginPage">
+
+        <div class="logo">
+            <div class="logo-icon">🚆</div>
+            <h1>RailTrack <span>ETA</span></h1>
+            <p>Dynamic Train ETA Forecasting</p>
+        </div>
+
+        <div class="form-title">
+            <h2>Welcome Back</h2>
+            <p>Login to continue to Train ETA</p>
+        </div>
+
+        <div class="input-group">
+            <label>Phone Number</label>
+
+            <div class="input-wrapper">
+                <span class="input-icon">📱</span>
+
+                <input
+                    type="tel"
+                    id="loginPhone"
+                    placeholder="Enter your phone number"
+                    maxlength="10"
+                >
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+
+            <div class="input-wrapper">
+                <span class="input-icon">🔒</span>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                >
+            </div>
+        </div>
+
+        <button class="main-button" onclick="loginUser()">
+            LOGIN
+        </button>
+
+        <p class="switch-text">
+            New to RailTrack ETA?
+            <button class="switch-button" onclick="showRegister()">
+                Create Account
+            </button>
+        </p>
+
+        <p id="loginMessage" class="message"></p>
+
+    </div>
+
+
+    <!-- REGISTER -->
+    <div class="auth-card hidden" id="registerPage">
+
+        <div class="logo">
+            <div class="logo-icon">🚆</div>
+            <h1>RailTrack <span>ETA</span></h1>
+            <p>Dynamic Train ETA Forecasting</p>
+        </div>
+
+        <div class="form-title">
+            <h2>Create Account</h2>
+            <p>Register to use Train ETA services</p>
+        </div>
+
+        <div class="input-group">
+            <label>Phone Number</label>
+
+            <div class="input-wrapper">
+                <span class="input-icon">📱</span>
+
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    placeholder="Enter your phone number"
+                    maxlength="10"
+                >
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+
+            <div class="input-wrapper">
+                <span class="input-icon">🔒</span>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                >
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Confirm Password</label>
+
+            <div class="input-wrapper">
+                <span class="input-icon">🔒</span>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                >
+            </div>
+        </div>
+
+        <button class="main-button" onclick="registerUser()">
+            CREATE ACCOUNT
+        </button>
+
+        <p class="switch-text">
+            Already registered?
+            <button class="switch-button" onclick="showLogin()">
+                Login
+            </button>
+        </p>
+
+        <p id="registerMessage" class="message"></p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function showRegister() {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("registerPage").classList.remove("hidden");
+        document.getElementById("loginMessage").textContent = "";
+        document.getElementById("loginMessage").className = "message";
+    }
+
+    function showLogin() {
+        document.getElementById("registerPage").classList.add("hidden");
+        document.getElementById("loginPage").classList.remove("hidden");
+        document.getElementById("registerMessage").textContent = "";
+        document.getElementById("registerMessage").className = "message";
+    }
+
+    function getRegisteredUsers() {
+        const users = localStorage.getItem("railtrackUsers");
+        return users ? JSON.parse(users) : [];
+    }
+
+    function saveRegisteredUsers(users) {
+        localStorage.setItem("railtrackUsers", JSON.stringify(users));
+    }
+
+    function registerUser() {
+
+        const phone = document.getElementById("registerPhone").value.trim();
+        const password = document.getElementById("registerPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        const message = document.getElementById("registerMessage");
+
+        if (phone.length !== 10) {
+           message.textContent = "Enter a valid 10-digit phone number.";
+           message.className = "message error";
+           return;
+        }
+
+        if (password.length < 6) {
+           message.textContent = "Password must contain at least 6 characters.";
+           message.className = "message error";
+           return;
+        }
+
+        if (password !== confirmPassword) {
+           message.textContent = "Passwords do not match.";
+           message.className = "message error";
+           return;
+        }
+
+        const users = getRegisteredUsers();
+        const userExists = users.some(user => user.phone === phone);
+
+        if (userExists) {
+           message.textContent = "You are already registered. Kindly login now.";
+            message.className = "message error";
+           setTimeout(() => {
+               showLogin();
+           }, 1500);
+           return;
+        }
+
+        users.push({ phone, password });
+        saveRegisteredUsers(users);
+
+        message.textContent = "Account created successfully!";
+        message.className = "message success";
+
+        setTimeout(() => {
+           showLogin();
+        }, 1200);
+    }
+
+
+    function loginUser() {
+
+        const phone = document.getElementById("loginPhone").value.trim();
+        const password = document.getElementById("loginPassword").value;
+
+        const message = document.getElementById("loginMessage");
+
+        if (phone.length !== 10 || password.length === 0) {
+           message.textContent = "Please enter your phone number and password.";
+           message.className = "message error";
+           return;
+        }
+
+        const users = getRegisteredUsers();
+        const user = users.find(user => user.phone === phone);
+
+        if (!user) {
+           message.textContent = "You are not registered. Please register first.";
+           message.className = "message error";
+           return;
+        }
+
+        if (user.password !== password) {
+           message.textContent = "Incorrect password. Please try again.";
+           message.className = "message error";
+           return;
+        }
+
+        message.textContent = "Login successful!";
+        message.className = "message success";
+
+        /*
+           Later connect this to your backend.
+
+           Example:
+
+           fetch("/api/login", {
+               method: "POST",
+               headers: {
+                   "Content-Type": "application/json"
+               },
+               body: JSON.stringify({
+                   phone: phone,
+                   password: password
+               })
+           })
+        */
+    }
+
+</script>
+
+</body>
+</html>
