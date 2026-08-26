@@ -1,0 +1,606 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.15),
+            transparent 30%
+        ),
+        #07111f;
+
+    color: #e5e7eb;
+
+    min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    height: 72px;
+
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(10, 23, 40, 0.85);
+
+    border-bottom: 1px solid #203047;
+
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+}
+
+.logo h2 {
+    font-size: 18px;
+}
+
+.logo h2 span {
+    color: #38bdf8;
+}
+
+.logo p {
+    font-size: 10px;
+    color: #7f8da3;
+    margin-top: 2px;
+}
+
+.logout-btn {
+    padding: 9px 18px;
+
+    border: 1px solid #30435d;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #cbd5e1;
+
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #17263b;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+.main-container {
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 60px 25px;
+}
+
+.welcome-section {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.welcome-section h1 {
+    font-size: 38px;
+
+    color: white;
+
+    margin-bottom: 12px;
+}
+
+.welcome-section p {
+    color: #8492a7;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   SEARCH CARDS
+   ========================= */
+
+.search-options {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.search-card {
+    background: rgba(13, 28, 48, 0.85);
+
+    border: 1px solid #243750;
+
+    border-radius: 18px;
+
+    padding: 32px;
+
+    transition: 0.25s;
+}
+
+.search-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #347eea;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(37, 99, 235, 0.15);
+
+    border-radius: 12px;
+
+    font-size: 23px;
+
+    margin-bottom: 20px;
+}
+
+.search-card h2 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+    color: white;
+}
+
+.search-card p {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #7f8da3;
+
+    margin-bottom: 22px;
+}
+
+.search-card input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border-radius: 9px;
+
+    border: 1px solid #2b3d56;
+
+    background: #091525;
+
+    color: white;
+
+    outline: none;
+
+    margin-bottom: 12px;
+}
+
+.search-card input:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.enter-btn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.enter-btn:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================
+   LOADING
+   ========================= */
+
+.loading-box {
+    margin-top: 35px;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: rgba(13, 28, 48, 0.8);
+
+    border: 1px solid #243750;
+
+    border-radius: 15px;
+}
+
+.loader {
+    width: 35px;
+    height: 35px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border: 4px solid #263a55;
+
+    border-top-color: #38bdf8;
+
+    border-radius: 50%;
+
+    animation: spin 0.9s linear infinite;
+}
+
+.loading-box h3 {
+    margin-bottom: 7px;
+}
+
+.loading-box p {
+    color: #77869c;
+
+    font-size: 13px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================
+   RESULT
+   ========================= */
+
+.result-box {
+    margin-top: 35px;
+
+    background: rgba(13, 28, 48, 0.9);
+
+    border: 1px solid #29415e;
+
+    border-radius: 18px;
+
+    padding: 30px;
+}
+
+.result-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid #253951;
+}
+
+.status-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    background: rgba(34, 197, 94, 0.1);
+
+    color: #4ade80;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.result-header h2 {
+    font-size: 24px;
+
+    color: white;
+}
+
+.result-header p {
+    color: #7f8da3;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+}
+
+.eta-section {
+    text-align: right;
+}
+
+.eta-section p {
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.eta-section h1 {
+    font-size: 38px;
+
+    color: #38bdf8;
+
+    margin: 5px 0;
+}
+
+.eta-section span {
+    color: #f59e0b;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   INFORMATION
+   ========================= */
+
+.information-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.info-card {
+    background: #091525;
+
+    border: 1px solid #20324a;
+
+    border-radius: 10px;
+
+    padding: 18px;
+}
+
+.info-card span {
+    display: block;
+
+    color: #738299;
+
+    font-size: 11px;
+
+    margin-bottom: 7px;
+}
+
+.info-card strong {
+    color: #e5e7eb;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   ROUTE
+   ========================= */
+
+.route-section {
+    margin-top: 35px;
+}
+
+.route-section h3 {
+    margin-bottom: 25px;
+
+    font-size: 15px;
+}
+
+.route {
+    display: flex;
+
+    align-items: center;
+}
+
+.station {
+    min-width: 80px;
+
+    text-align: center;
+}
+
+.station-dot {
+    width: 30px;
+    height: 30px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1f3048;
+
+    color: #788aa3;
+
+    font-size: 11px;
+}
+
+.station span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #8290a5;
+
+    font-size: 10px;
+}
+
+.station.completed .station-dot {
+    background: rgba(34, 197, 94, 0.15);
+
+    color: #4ade80;
+}
+
+.station.completed span {
+    color: #cbd5e1;
+}
+
+.station.current .station-dot {
+    background: #2563eb;
+
+    color: white;
+
+    box-shadow:
+        0 0 15px rgba(37, 99, 235, 0.45);
+}
+
+.station.current span {
+    color: #38bdf8;
+
+    font-weight: 600;
+}
+
+.route-line {
+    height: 2px;
+
+    flex: 1;
+
+    background: #263950;
+}
+
+.active-line {
+    background: #2563eb;
+}
+
+
+/* =========================
+   UPDATE
+   ========================= */
+
+.update-time {
+    margin-top: 25px;
+
+    text-align: right;
+
+    color: #66768d;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   UTILITY
+   ========================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .main-container {
+        padding: 40px 18px;
+    }
+
+    .welcome-section h1 {
+        font-size: 30px;
+    }
+
+    .search-options {
+        grid-template-columns: 1fr;
+    }
+
+    .result-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .eta-section {
+        text-align: left;
+    }
+
+    .information-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .route {
+        overflow-x: auto;
+
+        min-width: 650px;
+
+        padding-bottom: 15px;
+    }
+}
