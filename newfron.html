@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        RailTrack ETA
+    </title>
+
+
+    <!-- =========================
+         GOOGLE FONT
+         ========================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================
+         FRONT PAGE CSS
+         ========================= -->
+
+    <link
+        rel="stylesheet"
+        href="front.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="auth-container">
+
+
+        <!-- ========================================
+             LOGIN PAGE
+             ======================================== -->
+
+        <div
+            class="auth-card"
+            id="loginPage"
+        >
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🚆
+                </div>
+
+                <h1>
+                    RailTrack
+                    <span>
+                        ETA
+                    </span>
+                </h1>
+
+                <p>
+                    Dynamic Train ETA Forecasting
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN HEADING -->
+
+            <div class="form-title">
+
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p>
+                    Login to continue to Train ETA
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <!-- PHONE NUMBER -->
+
+                <div class="input-group">
+
+                    <label for="loginPhone">
+
+                        Phone Number
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📱
+                        </span>
+
+
+                        <input
+                            type="tel"
+                            id="loginPhone"
+                            placeholder="Enter your phone number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="loginPassword">
+
+                        Password
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="main-button"
+                    id="loginButton"
+                >
+
+                    LOGIN
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- LOGIN MESSAGE -->
+
+            <p
+                id="loginMessage"
+                class="message"
+            ></p>
+
+
+
+            <!-- OPEN REGISTER PAGE -->
+
+            <p class="switch-text">
+
+                New to RailTrack ETA?
+
+
+                <button
+                    type="button"
+                    class="switch-button"
+                    id="showRegisterButton"
+                >
+
+                    Create Account
+
+                </button>
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <!-- ========================================
+             REGISTER PAGE
+             ======================================== -->
+
+        <div
+            class="auth-card hidden"
+            id="registerPage"
+        >
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🚆
+                </div>
+
+                <h1>
+
+                    RailTrack
+
+                    <span>
+                        ETA
+                    </span>
+
+                </h1>
+
+                <p>
+                    Dynamic Train ETA Forecasting
+                </p>
+
+            </div>
+
+
+
+            <!-- REGISTER HEADING -->
+
+            <div class="form-title">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p>
+                    Register to use Train ETA services
+                </p>
+
+            </div>
+
+
+
+            <!-- REGISTER FORM -->
+
+            <form id="registerForm">
+
+
+
+                <!-- PHONE NUMBER -->
+
+                <div class="input-group">
+
+                    <label for="registerPhone">
+
+                        Phone Number
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📱
+                        </span>
+
+
+                        <input
+                            type="tel"
+                            id="registerPhone"
+                            placeholder="Enter your phone number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="registerPassword">
+
+                        Password
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+
+                        Confirm Password
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="main-button"
+                    id="registerButton"
+                >
+
+                    CREATE ACCOUNT
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- REGISTER MESSAGE -->
+
+            <p
+                id="registerMessage"
+                class="message"
+            ></p>
+
+
+
+            <!-- BACK TO LOGIN -->
+
+            <p class="switch-text">
+
+                Already registered?
+
+
+                <button
+                    type="button"
+                    class="switch-button"
+                    id="showLoginButton"
+                >
+
+                    Login
+
+                </button>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ========================================
+         FRONT PAGE JAVASCRIPT
+         ========================================
+
+         front.js will:
+         1. Register users
+         2. Login users
+         3. Check Firebase account
+         4. On successful login open:
+
+                dashboard.html
+
+         dashboard.html will itself connect to:
+
+                dashboard.css
+                dashboard.js
+         ======================================== -->
+
+    <script
+        type="module"
+        src="front.js"
+    ></script>
+
+
+</body>
+
+</html>
